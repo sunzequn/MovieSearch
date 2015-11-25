@@ -28,7 +28,7 @@ public class UrlQueue {
      * The collection for visited urls.
      * It has a good search performance to use <code>Set</code>.
      */
-    private Set<String> visitedUrls;
+    private LimitedSet<String> visitedUrls;
 
     /**
      * The maximum number of unvisited urls.
@@ -108,4 +108,14 @@ public class UrlQueue {
     public int visitedSize() {
         return visitedUrls.size();
     }
+
+    /**
+     * Determine whether it can continue to parse urls.
+     *
+     * @return true if it can continue otherwise false
+     */
+    public boolean ifContinue() {
+        return (unvisitedUrls.ifContinue() && visitedUrls.ifContinue());
+    }
+
 }

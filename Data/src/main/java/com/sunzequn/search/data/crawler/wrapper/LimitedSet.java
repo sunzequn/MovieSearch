@@ -61,6 +61,15 @@ public class LimitedSet<T> extends HashSet<T> {
      * @return the size
      */
     public int size() {
-        return this.size();
+        return super.size();
+    }
+
+    /**
+     * Determine whether it can continue to handle <code>LimitedSet</code>.
+     *
+     * @return true if it can continue otherwise false
+     */
+    public boolean ifContinue() {
+        return (size() <= maxNumber);
     }
 }
