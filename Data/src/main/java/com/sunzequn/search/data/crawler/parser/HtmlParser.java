@@ -4,6 +4,7 @@ import com.sunzequn.search.data.crawler.exception.ConfigException;
 import com.sunzequn.search.data.crawler.exception.ParseException;
 import com.sunzequn.search.data.crawler.wrapper.UrlQueue;
 import com.sunzequn.search.data.entity.YouKuMovie;
+import com.sunzequn.search.data.persistence.mongodb.MovieOpeartion;
 import com.sunzequn.search.data.utils.IOUtil;
 import com.sunzequn.search.data.utils.PropertiesUtil;
 import com.sunzequn.search.data.utils.StringUtil;
@@ -71,12 +72,12 @@ public class HtmlParser extends PullText {
             String url;
             String listPrefix = "http://www.youku.com/v_olist/";
             String itemPrefix = "http://www.youku.com/show_page/";
-            IOUtil ioUtil = new IOUtil();
+            MovieOpeartion movieOpeartion = new MovieOpeartion();
 
             while (urlQueue.ifContinue()) {
                 //Get a unvisited url from <code>UrlQueue</code>.
                 url = urlQueue.deUnvisitedUrlsQueue();
-                document = this.pullFromUrl(url, 3000, HttpMethod.Get);
+                document = this.pullFromUrl(url, 5000, HttpMethod.Get);
                 //Mark the url as visited.
                 urlQueue.markVisited(url);
 
@@ -86,18 +87,16 @@ public class HtmlParser extends PullText {
                     parseList(document);
 
                 } else if (url.startsWith(itemPrefix)) {
-                    System.out.println("----------");
                     //Parse the page of the bottom.
-                    YouKuMovie movie = parseItem(document);
+                    YouKuMovie movie = parseItem(document, url);
                     if (movie != null) {
-                        ioUtil.write(movie.toString());
+                        movieOpeartion.save(movie);
                     }
 
                 } else {
                     throw new ParseException("Can not parse the url: " + url);
                 }
             }
-            ioUtil.close();
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -126,7 +125,7 @@ public class HtmlParser extends PullText {
         }
     }
 
-    public YouKuMovie parseItem(Document document) {
+    public YouKuMovie parseItem(Document document, String url) {
 
         YouKuMovie movie = new YouKuMovie();
         String excluded = "优酷出品";
@@ -163,8 +162,8 @@ public class HtmlParser extends PullText {
         movie.setActors(actors);
         String area = detail.select("span.area").first().text();
         movie.setArea(area);
+        movie.setUrl(url);
 
-        System.out.println(movie);
         return movie;
 
     }

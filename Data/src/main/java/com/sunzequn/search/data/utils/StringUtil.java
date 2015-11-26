@@ -9,6 +9,10 @@ import java.util.List;
  */
 public class StringUtil {
 
+    public static boolean isEmpty(String string) {
+        return (string == null || string.equals(""));
+    }
+
     public static String removePrefix(String string, String prefix) {
         return string.replaceFirst(prefix, "").trim();
     }

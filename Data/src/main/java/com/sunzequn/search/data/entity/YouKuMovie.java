@@ -16,6 +16,7 @@ public class YouKuMovie {
     private String rating;
     private String duration;
     private String date;
+    private String url;
     private List<String> alias = new ArrayList<>();
     private List<String> directors = new ArrayList<>();
     private List<String> actors = new ArrayList<>();
@@ -56,7 +57,7 @@ public class YouKuMovie {
     }
 
     public void setDate(String date) {
-        this.date = date.trim();
+        this.date = StringUtil.removePrefix(date, "上映:");
     }
 
     public List<String> getAlias() {
@@ -64,7 +65,7 @@ public class YouKuMovie {
     }
 
     public void setAlias(String alias) {
-        this.alias = StringUtil.split(alias.trim(), "/");
+        this.alias = StringUtil.split(StringUtil.removePrefix(alias, "别名:"), "/");
     }
 
     public List<String> getDirectors() {
@@ -72,7 +73,7 @@ public class YouKuMovie {
     }
 
     public void setDirectors(String directors) {
-        this.directors = StringUtil.split(directors.trim(), "/");
+        this.directors = StringUtil.split(StringUtil.removePrefix(directors, "导演:"), "/");
     }
 
     public List<String> getActors() {
@@ -80,7 +81,7 @@ public class YouKuMovie {
     }
 
     public void setActors(String actors) {
-        this.actors = StringUtil.split(actors.trim(), "/");
+        this.actors = StringUtil.split(StringUtil.removePrefix(actors, "主演:"), "/");
     }
 
     public List<String> getArea() {
@@ -88,7 +89,7 @@ public class YouKuMovie {
     }
 
     public void setArea(String area) {
-        this.area = StringUtil.split(area.trim(), "/");
+        this.area = StringUtil.split(StringUtil.removePrefix(area, "地区:"), "/");
     }
 
     public List<String> getType() {
@@ -96,7 +97,35 @@ public class YouKuMovie {
     }
 
     public void setType(String type) {
-        this.type = StringUtil.split(type.trim(), "/");
+        this.type = StringUtil.split(StringUtil.removePrefix(type, "类型:"), "/");
+    }
+
+    public void setAlias(List<String> alias) {
+        this.alias = alias;
+    }
+
+    public void setDirectors(List<String> directors) {
+        this.directors = directors;
+    }
+
+    public void setType(List<String> type) {
+        this.type = type;
+    }
+
+    public void setActors(List<String> actors) {
+        this.actors = actors;
+    }
+
+    public void setArea(List<String> area) {
+        this.area = area;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override
