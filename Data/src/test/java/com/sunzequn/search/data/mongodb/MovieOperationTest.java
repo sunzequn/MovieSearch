@@ -9,26 +9,18 @@ import org.junit.Test;
  */
 public class MovieOperationTest {
 
-    @Test
-    public void insert() {
+    MovieOpeartion movieOpeartion = new MovieOpeartion();
 
+    @Test
+    public void save() {
         YouKuMovie movie = new YouKuMovie();
 
-        movie.setName("如果你还爱我");
-        movie.setRating("10");
-        movie.setType("青春/爱情");
-        movie.setDate("2015-12-28");
-        movie.setArea("大陆");
-        movie.setDirectors("孙泽群");
-        movie.setActors("孙泽群/张乃凡");
-        movie.setAlias("你不爱我的");
-        movie.setDuration("5年");
-
         System.out.println(movie);
-//
-//        MovieOpeartion movieOpeartion = new MovieOpeartion();
 //        movieOpeartion.save(movie);
+    }
 
-
+    @Test
+    public void findAll() {
+        System.out.println(movieOpeartion.findAll("MovieSearch", "YouKuMovie"));
     }
 }

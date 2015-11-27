@@ -1,6 +1,8 @@
 package com.sunzequn.search.data.persistence.mongodb;
 
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
 
@@ -13,13 +15,26 @@ public abstract class BaseOperation {
 
     private Client client = Client.instance();
 
-    public void createCollection(String database, String collection) {
-        client.getDatabase(database).createCollection(collection);
+    public MongoDatabase getDatabase(String database) {
+        return client.getDatabase(database);
     }
 
-    public void insert(String dababase, String collection, Document document) {
-        MongoCollection mongoCollection = client.getDatabase(dababase).getCollection(collection);
+    public void createCollection(String database, String collection) {
+        getDatabase(database).createCollection(collection);
+    }
+
+    public MongoCollection getCollection(String database, String collection) {
+        return getDatabase(database).getCollection(collection);
+    }
+
+    public void insert(String database, String collection, Document document) {
+        MongoCollection mongoCollection = getCollection(database, collection);
         mongoCollection.insertOne(document);
+    }
+
+    public FindIterable<Document> getAll(String database, String collection) {
+        MongoCollection mongoCollection = getCollection(database, collection);
+        return mongoCollection.find().limit(10);
     }
 
 }
