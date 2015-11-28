@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+  <!ENTITY xsd 'http://www.w3.org/2001/XMLSchema#'>
+  <!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+  <!ENTITY owl 'http://www.w3.org/2002/07/owl#'>
+  <!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>]>
+<rdf:RDF
+    xmlns:rdf="&rdf;"
+    xmlns:owl="&owl;"
+    xmlns:rdfs="&rdfs;"
+    xmlns:j.0="http://hhu.edu.cn/ontology#"
+    xmlns:xsd="&xsd;" > 
+  <rdf:Description rdf:about="http://hhu.edu.cn/ontology#tree">
+    <rdfs:subClassOf rdf:resource="http://hhu.edu.cn/ontology#plant"/>
+    <rdf:type rdf:resource="&owl;Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hhu.edu.cn/ontology#plant">
+    <rdf:type rdf:resource="&owl;Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hhu.edu.cn/ontology#rabbit">
+    <j.0:eat rdf:resource="http://hhu.edu.cn/ontology#leaf"/>
+    <rdfs:subClassOf rdf:resource="http://hhu.edu.cn/ontology#animal"/>
+    <rdf:type rdf:resource="&owl;Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hhu.edu.cn/ontology#animal">
+    <rdf:type rdf:resource="&owl;Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hhu.edu.cn/ontology#leaf">
+    <rdfs:subClassOf rdf:resource="http://hhu.edu.cn/ontology#plant"/>
+    <rdf:type rdf:resource="&owl;Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hhu.edu.cn/ontology#giraffe">
+    <j.0:eat rdf:resource="http://hhu.edu.cn/ontology#tree"/>
+    <rdfs:subClassOf rdf:resource="http://hhu.edu.cn/ontology#animal"/>
+    <rdf:type rdf:resource="&owl;Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hhu.edu.cn/ontology#propertyName">
+    <rdf:type rdf:resource="&owl;ObjectProperty"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://hhu.edu.cn/ontology#eat">
+    <j.0:propertyName>eat</j.0:propertyName>
+    <rdf:type rdf:resource="&rdf;Property"/>
+  </rdf:Description>
+</rdf:RDF>

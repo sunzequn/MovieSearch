@@ -1,7 +1,7 @@
 package com.sunzequn.search.data.mongodb;
 
 import com.sunzequn.search.data.entity.YouKuMovie;
-import com.sunzequn.search.data.persistence.mongodb.MovieOpeartion;
+import com.sunzequn.search.data.persistence.mongodb.MovieOperation;
 import org.junit.Test;
 
 /**
@@ -9,7 +9,7 @@ import org.junit.Test;
  */
 public class MovieOperationTest {
 
-    MovieOpeartion movieOpeartion = new MovieOpeartion();
+    MovieOperation movieOperation = new MovieOperation();
 
     @Test
     public void save() {
@@ -21,6 +21,6 @@ public class MovieOperationTest {
 
     @Test
     public void findAll() {
-        System.out.println(movieOpeartion.findAll("MovieSearch", "YouKuMovie"));
+        System.out.println(movieOperation.findAll("MovieSearch", "YouKuMovie"));
     }
 }

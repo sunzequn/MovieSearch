@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Created by Sloriac on 15/11/26.
  */
-public class MovieOpeartion extends BaseOperation implements Operation {
+public class MovieOperation extends BaseOperation implements Operation {
 
     private static final String database = "MovieSearch";
     private static final String youKuMovieCollection = "YouKuMovie";

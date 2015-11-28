@@ -4,16 +4,11 @@ import com.sunzequn.search.data.crawler.exception.ConfigException;
 import com.sunzequn.search.data.crawler.exception.ParseException;
 import com.sunzequn.search.data.crawler.wrapper.UrlQueue;
 import com.sunzequn.search.data.entity.YouKuMovie;
-import com.sunzequn.search.data.persistence.mongodb.MovieOpeartion;
-import com.sunzequn.search.data.utils.IOUtil;
+import com.sunzequn.search.data.persistence.mongodb.MovieOperation;
 import com.sunzequn.search.data.utils.PropertiesUtil;
-import com.sunzequn.search.data.utils.StringUtil;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Sloriac on 15/11/24.
@@ -72,7 +67,7 @@ public class HtmlParser extends PullText {
             String url;
             String listPrefix = "http://www.youku.com/v_olist/";
             String itemPrefix = "http://www.youku.com/show_page/";
-            MovieOpeartion movieOpeartion = new MovieOpeartion();
+            MovieOperation movieOperation = new MovieOperation();
 
             while (urlQueue.ifContinue()) {
                 //Get a unvisited url from <code>UrlQueue</code>.
@@ -90,7 +85,7 @@ public class HtmlParser extends PullText {
                     //Parse the page of the bottom.
                     YouKuMovie movie = parseItem(document, url);
                     if (movie != null) {
-                        movieOpeartion.save(movie);
+                        movieOperation.save(movie);
                     }
 
                 } else {
