@@ -2,6 +2,7 @@ package com.sunzequn.search.data.kg.ontology;
 
 import com.sunzequn.search.data.entity.YouKuMovie;
 import com.sunzequn.search.data.persistence.mongodb.MovieOperation;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.query.*;
 import org.apache.jena.rdf.model.Resource;
@@ -38,7 +39,6 @@ public class Main {
         for (; results.hasNext(); )
 
         {
-
             QuerySolution soln = results.nextSolution();
 
             Resource name = soln.getResource("movie");

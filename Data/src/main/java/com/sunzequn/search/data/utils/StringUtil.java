@@ -1,17 +1,12 @@
 package com.sunzequn.search.data.utils;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by Sloriac on 15/11/25.
  */
 public class StringUtil {
-
-    public static boolean isEmpty(String string) {
-        return (string == null || string.equals(""));
-    }
 
     public static String removePrefix(String string, String prefix) {
         return string.replaceFirst(prefix, "").trim();

@@ -96,6 +96,7 @@ public class HtmlParser extends PullText {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
     }
 
     public void parseList(Document document) {

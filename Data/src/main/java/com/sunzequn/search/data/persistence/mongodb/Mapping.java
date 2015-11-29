@@ -5,6 +5,7 @@ import com.mongodb.client.FindIterable;
 import com.sunzequn.search.data.entity.YouKuMovie;
 import com.sunzequn.search.data.utils.ClassUtil;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.List;
 public class Mapping {
 
     public static <T> Document toDocument(T t) {
+
         Document document = new Document();
         Class clazz = t.getClass();
         Field[] fields = clazz.getDeclaredFields();
@@ -29,6 +31,7 @@ public class Mapping {
     }
 
     public static <T> T toBean(Document document, Class clazz) {
+
         T t = null;
         try {
             t = (T) clazz.newInstance();
@@ -50,7 +53,6 @@ public class Mapping {
         List<T> list = new ArrayList<>();
         iterable.forEach((Block<Document>) document -> {
             list.add(toBean(document, clazz));
-
         });
         return list;
     }
