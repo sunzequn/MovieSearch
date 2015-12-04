@@ -26,5 +26,4 @@ public class MovieOperation extends BaseOperation implements Operation {
         return Mapping.toList(iterable, YouKuMovie.class);
     }
 
-
 }

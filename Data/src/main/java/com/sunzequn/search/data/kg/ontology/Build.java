@@ -1,9 +1,9 @@
 package com.sunzequn.search.data.kg.ontology;
 
 import com.sunzequn.search.data.entity.YouKuMovie;
-import com.sunzequn.search.data.kg.Dictionary.Predicate;
+import com.sunzequn.search.data.kg.constant.Predicate;
 import org.apache.jena.ontology.*;
-import com.sunzequn.search.data.kg.Dictionary.Namespace;
+import com.sunzequn.search.data.kg.constant.Namespace;
 import org.apache.jena.rdf.model.Literal;
 
 import java.util.ArrayList;

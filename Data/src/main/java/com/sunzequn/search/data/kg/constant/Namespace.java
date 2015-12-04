@@ -1,4 +1,4 @@
-package com.sunzequn.search.data.kg.Dictionary;
+package com.sunzequn.search.data.kg.constant;
 
 /**
  * Created by Sloriac on 15/11/28.

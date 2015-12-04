@@ -14,9 +14,11 @@ public class TrieTreeTest {
         trieTree.add("中国");
         trieTree.add("中国人");
         trieTree.add("中国国粹");
+        trieTree.add("sun ze qun");
         trieTree.print();
         System.out.println(trieTree.contains("中国人"));
-        System.out.println(trieTree.contains("中国国"));
+        System.out.println(trieTree.contains("sun ze qun"));
+        System.out.println(trieTree.contains("sun zequn"));
     }
 
 }

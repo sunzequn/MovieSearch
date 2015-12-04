@@ -1,6 +1,6 @@
 package com.sunzequn.search.data.kg;
 
-import com.sunzequn.search.data.kg.Dictionary.Namespace;
+import com.sunzequn.search.data.kg.constant.Namespace;
 import com.sunzequn.search.data.kg.ontology.BaseBuild;
 import org.apache.jena.ontology.*;
 import org.apache.jena.query.*;
