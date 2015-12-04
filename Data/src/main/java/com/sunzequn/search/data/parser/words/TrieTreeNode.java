@@ -58,24 +58,34 @@ public class TrieTreeNode {
 
     public TrieTreeNode addNode(char word) {
 
+        System.out.print(word);
         TrieTreeNode newNode = getNode(word);
-        if (newNode == null) {
-            newNode = new TrieTreeNode(word);
-            if (nodes.size() > 0) {
-                for (int i = 0; i < nodes.size(); i++) {
-                    if (nodes.get(i).getWord() > word) {
-                        List<TrieTreeNode> temp = nodes.subList(i, nodes.size());
-                        nodes.addAll(i + 1, temp);
-                        nodes.add(i, newNode);
-                        return newNode;
-                    }
-                }
-            }
-            nodes.add(newNode);
-            return newNode;
-        } else {
+        if (newNode != null) {
+            System.out.println(newNode.getWord() + "[[[[[[");
             return newNode;
         }
+        newNode = new TrieTreeNode(word);
+        if (nodes.size() > 0) {
+            System.out.println(nodes.size() + "////");
+            List<TrieTreeNode> temp = new ArrayList<>();
+            boolean isInsert = false;
+            for (int i = 0; i < nodes.size(); i++) {
+                if (nodes.get(i).getWord() > word && !isInsert) {
+                    isInsert = true;
+                    temp.add(newNode);
+                }
+                temp.add(nodes.get(i));
+            }
+            nodes = temp;
+            if (!isInsert) {
+                nodes.add(newNode);
+            }
+            System.out.println(nodes.size() + "++++");
+            return newNode;
+        }
+        nodes.add(newNode);
+        System.out.println(nodes.size() + "-----");
+        return newNode;
     }
 
 }

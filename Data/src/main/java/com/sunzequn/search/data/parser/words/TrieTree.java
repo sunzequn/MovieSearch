@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class TrieTree {
 
-    private static final TrieTreeNode ROOT = new TrieTreeNode('/');
+    private static TrieTreeNode ROOT = new TrieTreeNode('/');
 
     public boolean contains(String words) {
         words = words.trim();
@@ -38,6 +38,7 @@ public class TrieTree {
         TrieTreeNode root = ROOT;
         for (int i = 0; i < words.length(); i++) {
             char word = words.charAt(i);
+            System.out.println(word + ".......");
             TrieTreeNode node = root.addNode(word);
             root = node;
         }
