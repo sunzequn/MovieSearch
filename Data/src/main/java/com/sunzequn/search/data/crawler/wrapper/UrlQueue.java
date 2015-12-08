@@ -10,7 +10,7 @@ import java.util.Set;
  * The wrapper class for the queue of urls,
  * which contains two parts: unvisited urls and visited urls.
  * This class does not provide the access to specific implements of unvisited urls and visited urls.
- * It`s should be taken as a independent words structure.
+ * It`s should be taken as a independent data structure.
  */
 public class UrlQueue {
 

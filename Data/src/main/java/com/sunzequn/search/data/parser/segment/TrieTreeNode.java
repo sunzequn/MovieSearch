@@ -1,4 +1,4 @@
-package com.sunzequn.search.data.parser.words;
+package com.sunzequn.search.data.parser.segment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,15 +58,12 @@ public class TrieTreeNode {
 
     public TrieTreeNode addNode(char word) {
 
-        System.out.print(word);
         TrieTreeNode newNode = getNode(word);
         if (newNode != null) {
-            System.out.println(newNode.getWord() + "[[[[[[");
             return newNode;
         }
         newNode = new TrieTreeNode(word);
         if (nodes.size() > 0) {
-            System.out.println(nodes.size() + "////");
             List<TrieTreeNode> temp = new ArrayList<>();
             boolean isInsert = false;
             for (int i = 0; i < nodes.size(); i++) {
@@ -80,11 +77,9 @@ public class TrieTreeNode {
             if (!isInsert) {
                 nodes.add(newNode);
             }
-            System.out.println(nodes.size() + "++++");
             return newNode;
         }
         nodes.add(newNode);
-        System.out.println(nodes.size() + "-----");
         return newNode;
     }
 

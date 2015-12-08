@@ -23,9 +23,7 @@ public class ReadUtil {
             fileInputStream = new FileInputStream(file);
             inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
             bufferedReader = new BufferedReader(inputStreamReader);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
@@ -39,8 +37,20 @@ public class ReadUtil {
                 strings.add(string.trim());
             }
         } catch (IOException e) {
+            close();
             e.printStackTrace();
         }
+        close();
         return strings;
+    }
+
+    public void close() {
+        try {
+            fileInputStream.close();
+            inputStreamReader.close();
+            bufferedReader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

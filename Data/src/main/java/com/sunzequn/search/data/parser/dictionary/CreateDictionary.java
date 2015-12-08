@@ -15,6 +15,7 @@ public class CreateDictionary {
 
     @Test
     public void run() {
+
         MovieOperation movieOperation = new MovieOperation();
         List<YouKuMovie> movies = movieOperation.findAll("MovieSearch", "YouKuMovie");
         System.out.println(movies.size());

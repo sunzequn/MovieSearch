@@ -1,13 +1,35 @@
-package com.sunzequn.search.data.parser.words;
+package com.sunzequn.search.data.parser.segment;
 
+import com.sunzequn.search.data.parser.FilePath;
+import com.sunzequn.search.data.utils.ReadUtil;
 import org.apache.commons.lang3.StringUtils;
+
+import java.util.List;
 
 /**
  * Created by Sloriac on 15/12/2.
  */
 public class TrieTree {
 
-    private static TrieTreeNode ROOT = new TrieTreeNode('/');
+    /**
+     * The Singleton instance of this class.
+     */
+    private static final TrieTree instance = new TrieTree();
+
+    private static TrieTreeNode ROOT;
+
+    private TrieTree() {
+        ROOT = new TrieTreeNode('/');
+
+        ReadUtil readUtil;
+        readUtil = new ReadUtil(FilePath.movieDictionary);
+        List<String> movies = readUtil.readByLine();
+        add(movies);
+    }
+
+    public static TrieTree instance() {
+        return instance;
+    }
 
     public boolean contains(String words) {
         words = words.trim();
@@ -24,10 +46,7 @@ public class TrieTree {
                 root = node;
             }
         }
-        if (root.isTerminal()) {
-            return true;
-        }
-        return false;
+        return root.isTerminal();
     }
 
     public void add(String words) {
@@ -38,11 +57,16 @@ public class TrieTree {
         TrieTreeNode root = ROOT;
         for (int i = 0; i < words.length(); i++) {
             char word = words.charAt(i);
-            System.out.println(word + ".......");
             TrieTreeNode node = root.addNode(word);
             root = node;
         }
         root.setTerminal(true);
+    }
+
+    public void add(List<String> words) {
+        for (String word : words) {
+            add(word);
+        }
     }
 
     public void print() {

@@ -47,4 +47,19 @@ public class StringUtilTest {
 //        System.out.println(strings);
 
     }
+
+    @Test
+    public void same() {
+        List<String> s1 = new ArrayList<>();
+        s1.add("孙泽群");
+
+
+        List<String> s2 = new ArrayList<>();
+        s2.add("孙泽群");
+
+        System.out.println(s1.equals(s2));
+
+        s1.add("孙泽群");
+        System.out.println(s1.equals(s2));
+    }
 }
