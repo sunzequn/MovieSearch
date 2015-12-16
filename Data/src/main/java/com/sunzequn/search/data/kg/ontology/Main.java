@@ -27,25 +27,25 @@ public class Main {
         }
         build.write();
 
-        OntModel ontModel = build.getOntModel();
-        String queryString = "prefix ns:<http://sunzequn.com/ontology/电影/> " +
-                "prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
-                "select ?movie { ?movie rdf:type ns:爱情}";
-        Query query = QueryFactory.create(queryString);
-        QueryExecution qexec = QueryExecutionFactory.create(query, ontModel);
-
-        ResultSet results = qexec.execSelect();
-
-        for (; results.hasNext(); )
-
-        {
-            QuerySolution soln = results.nextSolution();
-
-            Resource name = soln.getResource("movie");
-            System.out.println(name);
-
-
-        }
+//        OntModel ontModel = build.getOntModel();
+//        String queryString = "prefix ns:<http://sunzequn.com/ontology/电影/> " +
+//                "prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>" +
+//                "select ?movie { ?movie rdf:type ns:爱情}";
+//        Query query = QueryFactory.create(queryString);
+//        QueryExecution qexec = QueryExecutionFactory.create(query, ontModel);
+//
+//        ResultSet results = qexec.execSelect();
+//
+//        for (; results.hasNext(); )
+//
+//        {
+//            QuerySolution soln = results.nextSolution();
+//
+//            Resource name = soln.getResource("movie");
+//            System.out.println(name);
+//
+//
+//        }
 
     }
 }

@@ -11,6 +11,8 @@ import java.util.List;
 
 /**
  * Created by Sloriac on 15/11/27.
+ *
+ * Build the ontology file of <code>YouKuMovie</code>.
  */
 public class Build extends BaseBuild {
 
@@ -21,14 +23,16 @@ public class Build extends BaseBuild {
     private OntClass director;
     private OntClass actor;
 
-    private OntProperty direct;
-    private OntProperty actIn;
-    private OntProperty rate;
-    private OntProperty date;
-    private OntProperty duration;
-    private OntProperty url;
-    private OntProperty type;
-    private OntProperty place;
+    private ObjectProperty direct;
+    private ObjectProperty actIn;
+    private ObjectProperty type;
+    private ObjectProperty place;
+
+    private DatatypeProperty rate;
+    private DatatypeProperty date;
+    private DatatypeProperty duration;
+    private DatatypeProperty url;
+
 
     /**
      * Default constructor for <code>Build</code> with initializations.
@@ -60,18 +64,21 @@ public class Build extends BaseBuild {
         actor = ontModel.createClass(Namespace.ACTOR);
         director.setSuperClass(person);
         actor.setSuperClass(person);
-
         /*
-        Create basic properties.
+        Create basic object properties.
          */
-        direct = ontModel.createOntProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.DIRECT);
-        actIn = ontModel.createOntProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.ACTIN);
-        rate = ontModel.createOntProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.RATE);
-        date = ontModel.createOntProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.DATE);
-        duration = ontModel.createOntProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.DURATION);
-        url = ontModel.createOntProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.URL);
-        type = ontModel.createOntProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.TYPE);
-        place = ontModel.createOntProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.AREA);
+        direct = ontModel.createObjectProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.DIRECT);
+        actIn = ontModel.createObjectProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.ACTIN);
+        type = ontModel.createObjectProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.TYPE);
+        place = ontModel.createObjectProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.AREA);
+        /*
+         Create basic data properties.
+         */
+        rate = ontModel.createDatatypeProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.RATE);
+        date = ontModel.createDatatypeProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.DATE);
+        duration = ontModel.createDatatypeProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.DURATION);
+        url = ontModel.createDatatypeProperty(Namespace.PROPERTY + Namespace.SLASH + Predicate.URL);
+
     }
 
     /**
@@ -87,16 +94,25 @@ public class Build extends BaseBuild {
             movieInstance = buildBasicMovie(youKuMovie, movieNamespace);
         }
 
-        List<OntClass> typeClasses = buildClass(youKuMovie.getType(), Namespace.MOVIE, movie);
-        addOntClass(movieInstance, typeClasses, type);
-        List<OntClass> areaClasses = buildClass(youKuMovie.getArea(), Namespace.AREA, area);
+        List<OntClass> typeClasses = buildSubClass(youKuMovie.getType(), Namespace.MOVIE, movie);
+        addRelation(movieInstance, typeClasses, type);
+        List<OntClass> areaClasses = buildSubClass(youKuMovie.getArea(), Namespace.AREA, area);
         addRelation(movieInstance, areaClasses, place);
         List<Individual> actorInstances = buildInstance(youKuMovie.getActors(), Namespace.ACTOR, actor);
         addRelation(actorInstances, movieInstance, actIn);
         List<Individual> directorInstances = buildInstance(youKuMovie.getDirectors(), Namespace.DIRECTOR, director);
         addRelation(directorInstances, movieInstance, direct);
+
+        movieInstance.setOntClass(movie);
     }
 
+    /**
+     * Build a instance of <code>YouKuMovie</code>.
+     *
+     * @param youKuMovie the entity of <code>YouKuMovie</code> to be built
+     * @param namespace  the URI of the instance
+     * @return a <code>Individual</code> of the <code>YouKuMovie</code>
+     */
     public Individual buildBasicMovie(YouKuMovie youKuMovie, String namespace) {
 
         Individual movieInstance = ontModel.createIndividual(namespace, null);
@@ -106,79 +122,20 @@ public class Build extends BaseBuild {
         Literal urlLiteral = ontModel.createLiteral(youKuMovie.getUrl());
         Literal ratingLiteral = ontModel.createLiteral(youKuMovie.getRating());
 
-        movieInstance.setPropertyValue(date, dateLiteral);
-        movieInstance.setPropertyValue(duration, durationLiteral);
-        movieInstance.setPropertyValue(url, urlLiteral);
-        movieInstance.setPropertyValue(rate, ratingLiteral);
+        movieInstance.addProperty(date, dateLiteral);
+        movieInstance.addProperty(duration, durationLiteral);
+        movieInstance.addProperty(url, urlLiteral);
+        movieInstance.addProperty(rate, ratingLiteral);
 
         return movieInstance;
     }
 
 
-    public List<OntClass> buildClass(List<String> classes, String namespace, OntClass superClass) {
-
-        List<OntClass> entities = new ArrayList<>();
-        for (String clazz : classes) {
-            String clazzNamespace = namespace + Namespace.SLASH + clazz;
-            OntClass entity = ontModel.getOntClass(clazzNamespace);
-            if (entity == null) {
-                entity = ontModel.createClass(clazzNamespace);
-                entity.setSuperClass(superClass);
-            }
-            entities.add(entity);
-        }
-        return entities;
-    }
-
-    /**
-     * Create instances of Person such a director or a actor.
-     *
-     * @param instances  the list of persons
-     * @param namespace  the namespace of the type of persons,such as Director or Actor
-     * @param superClass the super class of persons,such as Director or Actor
-     * @return a list of <code>Individual</code>
-     */
-    public List<Individual> buildInstance(List<String> instances, String namespace, OntClass superClass) {
-
-        List<Individual> individuals = new ArrayList<>();
-        for (String person : instances) {
-            String personNamespace = namespace + Namespace.SLASH + person;
-            Individual individual = ontModel.getIndividual(personNamespace);
-            if (individual == null) {
-                individual = ontModel.createIndividual(personNamespace, superClass);
-            }
-            individuals.add(individual);
-        }
-        return individuals;
-    }
-
-    public <T extends OntResource> void addRelation(T clazz, List<T> clazzes, OntProperty property) {
-        for (T t : clazzes) {
-            clazz.setPropertyValue(property, t);
-        }
-    }
-
-    public <T extends OntResource> void addRelation(List<T> clazzes, T clazz, OntProperty property) {
-        for (T t : clazzes) {
-            t.setPropertyValue(property, clazz);
-        }
-    }
 
     public void write() {
         super.writeRDF(ontModel, Namespace.FILEPATH);
     }
 
-    public void addRelation(Individual individual, List<OntClass> clazzes, OntProperty property) {
-        for (OntClass clazz : clazzes) {
-            individual.setPropertyValue(property, clazz);
-        }
-    }
-
-    public void addOntClass(Individual individual, List<OntClass> clazzes, OntProperty property) {
-        for (OntClass clazz : clazzes) {
-            individual.setOntClass(clazz);
-        }
-    }
 
 
 }

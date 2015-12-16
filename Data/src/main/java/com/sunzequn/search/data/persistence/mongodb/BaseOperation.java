@@ -34,7 +34,7 @@ public abstract class BaseOperation {
 
     public FindIterable<Document> getAll(String database, String collection) {
         MongoCollection mongoCollection = getCollection(database, collection);
-        return mongoCollection.find();
+        return mongoCollection.find().limit(1);
     }
 
 }

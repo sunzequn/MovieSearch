@@ -1,7 +1,5 @@
 package com.sunzequn.search.data.parser.segment;
 
-import java.util.List;
-
 /**
  * Created by Sloriac on 15/12/8.
  * <p>
