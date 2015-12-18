@@ -7,6 +7,7 @@ import com.mongodb.client.MongoDatabase;
  * Created by Sloriac on 15/11/26.
  * <p>
  * Connect to a MongoDB instance running on the localhost on the default port 27017.
+ * This class is thread safe.
  */
 public class Client {
 

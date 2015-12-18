@@ -8,6 +8,9 @@ import java.util.List;
 
 /**
  * Created by Sloriac on 15/12/2.
+ *
+ * A wrapper of trie tree, an ordered tree data structure
+ * that is used to store a dynamic character set.
  */
 public class TrieTree {
 
@@ -16,11 +19,17 @@ public class TrieTree {
      */
     private static final TrieTree instance = new TrieTree();
 
+    /**
+     * The root node of trie tree.
+     */
     private static TrieTreeNode ROOT;
 
+    /**
+     * The private constructor for the Singleton instance of this class.
+     * This method also adds dictionaries to trie tree.
+     */
     private TrieTree() {
         ROOT = new TrieTreeNode('/');
-
         ReadUtil readUtil;
         readUtil = new ReadUtil(FilePath.movieDictionary);
         List<String> movies = readUtil.readByLine();

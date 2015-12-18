@@ -8,13 +8,22 @@ import java.util.List;
 
 /**
  * Created by Sloriac on 15/12/8.
+ *
+ * The wrapper of the result of word segmentation.
  */
 public class Word {
 
+    //The number of single words.
     private int singleWord;
+    //The number of words.
     private int number;
+    //The list of words.
     private List<String> words;
 
+    /**
+     * Public constructor without parameters
+     * with the initialization of variables.
+     */
     public Word() {
         singleWord = 0;
         number = 0;
