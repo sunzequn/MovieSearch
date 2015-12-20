@@ -87,7 +87,6 @@ public class HtmlParser extends PullText {
                     if (movie != null) {
                         movieOperation.save(movie);
                     }
-
                 } else {
                     throw new ParseException("Can not parse the url: " + url);
                 }

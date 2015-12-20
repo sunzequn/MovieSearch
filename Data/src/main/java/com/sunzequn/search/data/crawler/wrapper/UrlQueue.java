@@ -75,11 +75,16 @@ public class UrlQueue {
 
     /**
      * Get the first element of the queue of unvisited urls.
+     * This method also checks whether the url has already visited.
      *
      * @return the first element this queue
      */
     public String deUnvisitedUrlsQueue() {
-        return unvisitedUrls.deQueue();
+        String url = unvisitedUrls.deQueue();
+        while (visitedUrls.contains(url)) {
+            url = unvisitedUrls.deQueue();
+        }
+        return url;
     }
 
     /**

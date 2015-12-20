@@ -43,13 +43,11 @@ public class LimitedQueue<T> {
     public void enQueue(T t) {
         try {
             if (queue.size() < maxNumber) {
-                //t can be repeatable.
-                queue.addLast(t);
-//                if (!contains(t)) {
-//                    queue.addLast(t);
-//                } else {
-//                    throw new QueueException("The queue already contains the element.");
-//                }
+                if (!contains(t)) {
+                    queue.addLast(t);
+                } else {
+                    System.out.println("The queue already contains the element: " + t);
+                }
             } else {
                 throw new QueueException("The size of the queue comes to it`s maximum.");
             }
