@@ -7,7 +7,7 @@ import java.util.List;
  */
 public interface Operation {
 
-    public <T> void save(T t);
+    public <T> void save(String collection, T t);
 
     public <T> List<T> findAll(String database, String collection);
 }

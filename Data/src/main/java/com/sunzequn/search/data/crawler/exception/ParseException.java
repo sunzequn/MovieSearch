@@ -1,7 +1,5 @@
 package com.sunzequn.search.data.crawler.exception;
 
-import java.io.IOException;
-
 /**
  * Created by Sloriac on 15/11/25.
  * <p>

@@ -1,6 +1,6 @@
 package com.sunzequn.search.data.crawler;
 
-import com.sunzequn.search.data.crawler.parser.HtmlParser;
+import com.sunzequn.search.data.crawler.parser.YouKuHtmlParser;
 import org.junit.Test;
 
 /**
@@ -10,8 +10,7 @@ public class HtmlParseTest {
 
     @Test
     public void parse() {
-        HtmlParser htmlParser = new HtmlParser();
-        htmlParser.parse();
+
 
     }
 }

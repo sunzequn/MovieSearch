@@ -21,11 +21,13 @@ public abstract class PullText {
      * @param method  http method: get or post
      * @return the document of the website if no errors happen
      */
-    public Document pullFromUrl(String url, int timeout, HttpMethod method) {
+    public static Document pullFromUrl(String url, int timeout, HttpMethod method) {
 
         try {
             Document document;
-            Connection connection = Jsoup.connect(url).timeout(timeout);
+            Connection connection = null;
+            connection = Jsoup.connect(url).timeout(timeout);
+
             if (method == HttpMethod.Get) {
                 document = connection.get();
             } else {

@@ -17,6 +17,7 @@ public class YouKuMovie {
     private String duration;
     private String date;
     private String url;
+    private String general;
     private List<String> alias = new ArrayList<>();
     private List<String> directors = new ArrayList<>();
     private List<String> actors = new ArrayList<>();
@@ -128,6 +129,14 @@ public class YouKuMovie {
         this.url = url;
     }
 
+    public String getGeneral() {
+        return general;
+    }
+
+    public void setGeneral(String general) {
+        this.general = general;
+    }
+
     @Override
     public String toString() {
         return "YouKuMovie{" +
@@ -135,6 +144,8 @@ public class YouKuMovie {
                 ", rating='" + rating + '\'' +
                 ", duration='" + duration + '\'' +
                 ", date='" + date + '\'' +
+                ", url='" + url + '\'' +
+                ", general='" + general + '\'' +
                 ", alias=" + alias +
                 ", directors=" + directors +
                 ", actors=" + actors +

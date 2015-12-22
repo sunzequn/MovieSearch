@@ -35,7 +35,7 @@ public class UrlQueue {
      * It is initialized from the config file if defined.
      */
     private int maxVisitedUrlNumber = 10000;
-    private int maxUnvisitedUrlNumber = 100;
+    private int maxUnvisitedUrlNumber = 10000;
 
     /**
      * Default constructor for <code>UrlQueue</code> with variable initializations.

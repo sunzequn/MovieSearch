@@ -12,12 +12,11 @@ import java.util.List;
 public class MovieOperation extends BaseOperation implements Operation {
 
     private static final String database = "MovieSearch";
-    private static final String youKuMovieCollection = "YouKuMovie";
 
     @Override
-    public <T> void save(T t) {
+    public <T> void save(String collection, T t) {
         Document document = Mapping.toDocument(t);
-        insert(database, youKuMovieCollection, document);
+        insert(database, collection, document);
     }
 
     @Override
