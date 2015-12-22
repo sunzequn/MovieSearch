@@ -1,6 +1,8 @@
-package com.sunzequn.search.data.crawler.parser;
+package com.sunzequn.search.data.crawler.parser.youku;
 
 import com.sunzequn.search.data.crawler.exception.ConfigException;
+import com.sunzequn.search.data.crawler.parser.HttpMethod;
+import com.sunzequn.search.data.crawler.parser.PullText;
 import com.sunzequn.search.data.crawler.wrapper.UrlQueue;
 import com.sunzequn.search.data.entity.Url;
 import com.sunzequn.search.data.entity.YouKuMovie;
