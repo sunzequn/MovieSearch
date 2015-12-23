@@ -1,7 +1,7 @@
 package com.sunzequn.search.data.crawler.wrapper;
 
 
-import com.sunzequn.search.data.crawler.exception.QueueException;
+import com.sunzequn.search.data.exception.QueueException;
 
 import java.util.HashSet;
 

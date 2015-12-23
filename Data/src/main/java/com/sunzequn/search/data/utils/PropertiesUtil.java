@@ -1,7 +1,7 @@
 package com.sunzequn.search.data.utils;
 
 
-import com.sunzequn.search.data.crawler.exception.ConfigException;
+import com.sunzequn.search.data.exception.ConfigException;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,4 +1,4 @@
-package com.sunzequn.search.data.crawler.exception;
+package com.sunzequn.search.data.exception;
 
 /**
  * Created by Sloriac on 15/11/25.

@@ -19,14 +19,14 @@ public class Database {
      */
     private static final Database instance = new Database();
 
-    private static final String NEOPATHKEY = "neopath";
+    private static final String NEO_PATH_KEY = "neopath";
     private GraphDatabaseService graphDb;
 
     /**
      * Constructor for creating the Singleton instance of this class.
      */
     private Database() {
-        String path = PropertiesUtil.getValue(NEOPATHKEY);
+        String path = PropertiesUtil.getValue(NEO_PATH_KEY);
         if (!StringUtils.isEmpty(path)) {
             graphDb = new GraphDatabaseFactory().newEmbeddedDatabase(path);
             registerShutdownHook(graphDb);

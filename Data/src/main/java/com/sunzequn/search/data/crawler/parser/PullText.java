@@ -25,8 +25,7 @@ public abstract class PullText {
 
         try {
             Document document;
-            Connection connection = null;
-            connection = Jsoup.connect(url).timeout(timeout);
+            Connection connection = Jsoup.connect(url).timeout(timeout);
 
             if (method == HttpMethod.Get) {
                 document = connection.get();

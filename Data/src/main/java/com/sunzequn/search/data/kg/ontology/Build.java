@@ -130,8 +130,6 @@ public class Build extends BaseBuild {
         return movieInstance;
     }
 
-
-
     public void write() {
         super.writeRDF(ontModel, Namespace.FILEPATH);
     }
