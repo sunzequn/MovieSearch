@@ -1,5 +1,6 @@
 package com.sunzequn.search.data.crawler.parser.youku;
 
+import com.sunzequn.search.data.crawler.parser.HtmlParser;
 import com.sunzequn.search.data.crawler.parser.HttpMethod;
 import com.sunzequn.search.data.crawler.parser.PullText;
 import com.sunzequn.search.data.entity.YouKuMovie;
@@ -11,10 +12,10 @@ import org.jsoup.select.Elements;
 /**
  * Created by Sloriac on 15/11/24.
  * <p>
- * Parse a HTML document.
+ * Parse a HTML document from the website of Youku.
  * It`s implement depends on your application.
  */
-public class YouKuHtmlParser extends PullText {
+public class YouKuHtmlParser extends PullText implements HtmlParser<YouKuMovie> {
 
     private static final String DEFAULT_GENERAL = "暂无概况";
 
@@ -25,6 +26,7 @@ public class YouKuHtmlParser extends PullText {
      * @param url an unvisited url
      * @return a <code>YouKuMovie</code> if this web contains a movie otherwise null.
      */
+    @Override
     public YouKuMovie parse(String url) {
         //Determine whether it can continue to parse urls.
         try {
@@ -55,6 +57,7 @@ public class YouKuHtmlParser extends PullText {
      * @param url      the link of this movie
      * @return a <code>YouKuMovie</code> if this web contains a movie otherwise null.
      */
+    @Override
     public YouKuMovie parseItem(Document document, String url) {
 
         YouKuMovie movie = new YouKuMovie();
