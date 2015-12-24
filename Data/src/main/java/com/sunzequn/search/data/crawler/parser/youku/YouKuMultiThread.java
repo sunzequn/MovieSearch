@@ -14,16 +14,16 @@ import org.jsoup.select.Elements;
  */
 public class YouKuMultiThread extends MultiThread {
 
-    private static final String YOUKU_MOVIE_COLLECTION = "YouKuMovie";
-    private static final String YOUKU_URL_COLLECTION = "YouKuUrl";
-    private static final String YOUKU_URL_KEY = "youkuUrl";
+    private static final String MOVIE_COLLECTION = "YouKuMovie";
+    private static final String URL_COLLECTION = "YouKuUrl";
+    private static final String URL_KEY = "youkuUrl";
     private static final int THREAD_NUM = 10;
 
     /**
      * Main method.
      */
     public static void main(String[] args) {
-        init(YOUKU_URL_KEY);
+        init(URL_KEY);
         pullUrls();
 
         TimeUtil.start();
@@ -39,8 +39,8 @@ public class YouKuMultiThread extends MultiThread {
                     if (movie != null) {
                         markVisited(url);
                         Url url1 = new Url(url);
-                        saveUrl(YOUKU_URL_COLLECTION, url1);
-                        saveMovie(YOUKU_MOVIE_COLLECTION, movie);
+                        saveUrl(URL_COLLECTION, url1);
+                        saveMovie(MOVIE_COLLECTION, movie);
                     }
                 }
 

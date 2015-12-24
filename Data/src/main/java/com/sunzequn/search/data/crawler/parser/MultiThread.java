@@ -52,6 +52,7 @@ public abstract class MultiThread extends PullText {
     public static synchronized String getUrl() {
         if (urlQueue.ifContinue()) {
             num += 1;
+            System.out.println(num);
             return urlQueue.deUnvisitedUrlsQueue();
         }
         TimeUtil.end();
@@ -81,8 +82,7 @@ public abstract class MultiThread extends PullText {
      * This is also a synchronized method.
      */
     public static synchronized void saveUrl(String collection, Url url) {
-//        movieOperation.save(collection, url);
-        System.out.println(url);
+        movieOperation.save(collection, url);
     }
 
     /**
@@ -90,8 +90,7 @@ public abstract class MultiThread extends PullText {
      * This is also a synchronized method.
      */
     public static synchronized <T> void saveMovie(String collection, T t) {
-//        movieOperation.save(collection,  t);
-        System.out.println(t);
+        movieOperation.save(collection, t);
     }
 
 }

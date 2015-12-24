@@ -18,6 +18,7 @@ import org.jsoup.select.Elements;
 public class YouKuHtmlParser extends PullText implements HtmlParser<YouKuMovie> {
 
     private static final String DEFAULT_GENERAL = "暂无概况";
+    private static final int TIMEOUT = 5000;
 
     /**
      * Parse urls from <code>UrlQueue</code>.
@@ -28,12 +29,10 @@ public class YouKuHtmlParser extends PullText implements HtmlParser<YouKuMovie> 
      */
     @Override
     public YouKuMovie parse(String url) {
-        //Determine whether it can continue to parse urls.
         try {
             Document document;
-            String listPrefix = "http://www.youku.com/v_olist/";
             String itemPrefix = "http://www.youku.com/show_page/";
-            document = pullFromUrl(url, 5000, HttpMethod.Get);
+            document = pullFromUrl(url, TIMEOUT, HttpMethod.Get);
             //There are two types of links: book list and book detail.
             if (url.startsWith(itemPrefix)) {
                 //Parse the page of the bottom.
