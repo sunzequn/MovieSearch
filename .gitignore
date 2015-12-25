@@ -1,6 +1,6 @@
 .DS_Store
 .idea
-/Data/target/
-/Web/target/
+/Data/target
+/Web/target
 /Data/src/main/resources/segmenter
 
