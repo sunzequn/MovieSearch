@@ -17,7 +17,7 @@ public final class Namespace {
     public static final String ACTOR = PERSON + SLASH + "演员";
     public static final String PROPERTY = PREFIX + SLASH + "属性";
 
-    public static final String FILEPATH = "src/main/resources/sw/movie.owl";
+    public static final String FILEPATH = "Data/src/main/resources/sw/movie.owl";
 
     private Namespace() {
     }

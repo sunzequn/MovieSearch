@@ -4,7 +4,6 @@ import com.sunzequn.search.data.entity.YouKuMovie;
 import com.sunzequn.search.data.parser.FilePath;
 import com.sunzequn.search.data.persistence.mongodb.MovieOperation;
 import com.sunzequn.search.data.utils.WriteUtil;
-import org.junit.Test;
 
 import java.util.List;
 
@@ -13,8 +12,7 @@ import java.util.List;
  */
 public class CreateDictionary {
 
-    @Test
-    public void run() {
+    public static void main(String[] args){
 
         MovieOperation movieOperation = new MovieOperation();
         List<YouKuMovie> movies = movieOperation.findAll("MovieSearch", "YouKuMovie");

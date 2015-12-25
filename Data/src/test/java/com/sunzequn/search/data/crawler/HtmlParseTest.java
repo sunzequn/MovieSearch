@@ -1,6 +1,5 @@
 package com.sunzequn.search.data.crawler;
 
-import com.sunzequn.search.data.crawler.parser.YouKuHtmlParser;
 import org.junit.Test;
 
 /**

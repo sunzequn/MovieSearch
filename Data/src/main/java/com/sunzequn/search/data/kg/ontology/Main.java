@@ -15,8 +15,7 @@ import java.util.List;
  */
 public class Main {
 
-    @Test
-    public void run() {
+    public static void main(String[] args){
 
         Build build = new Build();
         MovieOperation movieOperation = new MovieOperation();

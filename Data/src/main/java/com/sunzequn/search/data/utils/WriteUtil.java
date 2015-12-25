@@ -1,9 +1,6 @@
 package com.sunzequn.search.data.utils;
 
-import com.sunzequn.search.data.crawler.exception.ConfigException;
-
 import java.io.*;
-import java.util.List;
 
 /**
  * Created by Sloriac on 15/11/25.
