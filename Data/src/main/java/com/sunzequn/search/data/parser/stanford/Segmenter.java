@@ -1,13 +1,10 @@
 package com.sunzequn.search.data.parser.stanford;
 
-import java.io.PrintStream;
 import java.util.List;
 import java.util.Properties;
 
 import edu.stanford.nlp.ie.crf.CRFClassifier;
 import edu.stanford.nlp.ling.CoreLabel;
-import edu.stanford.nlp.util.PropertiesUtils;
-import org.junit.Test;
 
 /**
  * Created by Sloriac on 15/12/25.
