@@ -45,4 +45,12 @@ public class WriteUtil {
         }
     }
 
+    public void flush() {
+        try {
+            fileWriter.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

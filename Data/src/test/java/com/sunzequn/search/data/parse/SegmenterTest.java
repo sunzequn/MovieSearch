@@ -11,5 +11,6 @@ public class SegmenterTest {
     public static void main(String[] args){
         Segmenter segmenter = new Segmenter();
         System.out.println(segmenter.seg("我是孙泽群"));
+        System.out.println(segmenter.seg("我     是     孙泽群"));
     }
 }
