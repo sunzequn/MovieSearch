@@ -15,7 +15,7 @@ public class CreateDictionary {
     public static void main(String[] args){
 
         MovieOperation movieOperation = new MovieOperation();
-        List<YouKuMovie> movies = movieOperation.findAll("MovieSearch", "YouKuMovie");
+        List<YouKuMovie> movies = movieOperation.findAll("MovieSearch", "YouKuMovie", YouKuMovie.class);
         System.out.println(movies.size());
         WriteUtil actorWriter = new WriteUtil(FilePath.actorDictionary, true);
         WriteUtil movieWriter = new WriteUtil(FilePath.movieDictionary, true);

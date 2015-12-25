@@ -11,18 +11,17 @@ import java.util.List;
  */
 public class MovieOperation extends BaseOperation implements Operation {
 
-    private static final String database = "MovieSearch";
 
     @Override
-    public <T> void save(String collection, T t) {
+    public <T> void save(String database, String collection, T t) {
         Document document = Mapping.toDocument(t);
         insert(database, collection, document);
     }
 
     @Override
-    public <T> List<T> findAll(String database, String collection) {
+    public <T> List<T> findAll(String database, String collection, Class clazz) {
         FindIterable<Document> iterable = getAll(database, collection);
-        return Mapping.toList(iterable, YouKuMovie.class);
+        return Mapping.toList(iterable, clazz);
     }
 
 }

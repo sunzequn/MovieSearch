@@ -19,7 +19,7 @@ public class Main {
 
         Build build = new Build();
         MovieOperation movieOperation = new MovieOperation();
-        List<YouKuMovie> movieList = movieOperation.findAll("MovieSearch", "YouKuMovie");
+        List<YouKuMovie> movieList = movieOperation.findAll("MovieSearch", "YouKuMovie", YouKuMovie.class);
         for (YouKuMovie movie : movieList) {
             System.out.println(movie);
             build.buildMovie(movie);

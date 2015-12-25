@@ -25,13 +25,11 @@ public class Mapping {
             String key = field.getName();
             Object value = ClassUtil.getFieldValue(t, key);
             document.append(key, value);
-            System.out.println(key + " : " + value);
         }
         return document;
     }
 
     public static <T> T toBean(Document document, Class clazz) {
-
         T t = null;
         try {
             t = (T) clazz.newInstance();

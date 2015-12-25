@@ -12,6 +12,8 @@ import com.sunzequn.search.data.utils.TimeUtil;
  */
 public abstract class MultiThread extends PullText {
 
+    private static final String DATABASE = "MovieSearch";
+
     //The wrapper of unvisited urls and visited urls.
     protected static UrlQueue urlQueue;
 
@@ -82,7 +84,7 @@ public abstract class MultiThread extends PullText {
      * This is also a synchronized method.
      */
     public static synchronized void saveUrl(String collection, Url url) {
-        movieOperation.save(collection, url);
+        movieOperation.save(DATABASE, collection, url);
     }
 
     /**
@@ -90,7 +92,7 @@ public abstract class MultiThread extends PullText {
      * This is also a synchronized method.
      */
     public static synchronized <T> void saveMovie(String collection, T t) {
-        movieOperation.save(collection, t);
+        movieOperation.save(DATABASE, collection, t);
     }
 
 }

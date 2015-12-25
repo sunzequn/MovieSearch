@@ -21,6 +21,6 @@ public class MovieOperationTest {
 
     @Test
     public void findAll() {
-        System.out.println(movieOperation.findAll("MovieSearch", "YouKuMovie"));
+        System.out.println(movieOperation.findAll("MovieSearch", "YouKuMovie", YouKuMovie.class));
     }
 }
