@@ -38,7 +38,7 @@ public class LevenshteinDis {
      * @param target target string
      * @return the number of least operations that will transform source string into target
      */
-    public static int distance(char[] source, char[] target) {
+    private static int distance(char[] source, char[] target) {
 
         int sourceLen = source.length;
         int targetLen = target.length;

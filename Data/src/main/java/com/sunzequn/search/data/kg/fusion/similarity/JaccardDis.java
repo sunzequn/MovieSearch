@@ -18,19 +18,19 @@ public class JaccardDis {
      * @param target target string
      * @return a number between 0 and 1, representing the similarity
      */
-    public static double compute(char[] source, char[] target) {
+    public static double compute(String[] source, String[] target) {
         int sourceLen = source.length;
         int targetLen = target.length;
-        Set<Character> sourceSet = new HashSet<>();
-        Set<Character> targetSet = new HashSet<>();
+        Set<String> sourceSet = new HashSet<>();
+        Set<String> targetSet = new HashSet<>();
         for (int i = 0; i < sourceLen; i++) {
             sourceSet.add(source[i]);
         }
         for (int i = 0; i < targetLen; i++) {
             targetSet.add(target[i]);
         }
-        Set<Character> intersection = new HashSet<>();
-        Set<Character> union = new HashSet<>();
+        Set<String> intersection = new HashSet<>();
+        Set<String> union = new HashSet<>();
         intersection.addAll(sourceSet);
         intersection.retainAll(targetSet);
         union.addAll(sourceSet);

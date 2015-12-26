@@ -5,6 +5,9 @@ import com.sunzequn.search.data.kg.fusion.similarity.JaroWinklerDis;
 import com.sunzequn.search.data.kg.fusion.similarity.LevenshteinDis;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Sloriac on 15/12/23.
  */
@@ -20,11 +23,15 @@ public class DisTest {
 //        System.out.println("Levenshtein distance: " + LevenshteinDis.compute(source, target));
 //        System.out.println("Jaccard distance: " + JaccardDis.compute(source, target));
 
-        char[] source = "白百何 / 井柏然".toCharArray();
-        char[] target = "井柏然 / 白百何".toCharArray();
+        List<String> strings = new ArrayList<>();
+        strings.add("孙泽群");
+        strings.add("白百何");
+        String[] array = strings.toArray(new String[strings.size()]);
+        System.out.println(array[0]);
 
-        System.out.println("Jaro-Winkler distance: " + JaroWinklerDis.compute(source, target));
-        System.out.println("Levenshtein distance: " + LevenshteinDis.compute(source, target));
+        String[] source = {"白百何", "井柏然", "孙泽群"};
+        String[] target = {"白百何", "孙泽群", "井柏然"};
+
         System.out.println("Jaccard distance: " + JaccardDis.compute(source, target));
     }
 }

@@ -67,6 +67,19 @@ public class TencentMovie {
         this.actors = StringUtil.split(actors, " ");
     }
 
+    public String directors() {
+        String string = "";
+        for (String director : directors) {
+            string += director;
+        }
+        return string;
+    }
+
+    public String[] actors() {
+        String[] strings = actors.toArray(new String[actors.size()]);
+        return strings;
+    }
+
     @Override
     public String toString() {
         return "TencentMovie{" +
