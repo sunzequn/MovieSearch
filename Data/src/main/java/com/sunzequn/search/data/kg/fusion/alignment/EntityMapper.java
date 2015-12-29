@@ -50,7 +50,7 @@ public class EntityMapper {
         MovieOperation movieOperation = new MovieOperation();
         List<YouKuMovie> youKuMovies = movieOperation.findAll(DATABASE, YOUKU_MOVIE_COLLECTION, YouKuMovie.class);
         List<TencentMovie> tencentMovies = movieOperation.findAll(DATABASE, TENCENT_MOVIE_COLLECTION, TencentMovie.class);
-        for (int i = 475; i < youKuMovies.size(); i++) {
+        for (int i = 752; i < youKuMovies.size(); i++) {
             YouKuMovie youKuMovie = youKuMovies.get(i);
             Movie movie = new Movie(youKuMovie);
             for (TencentMovie tencentMovie : tencentMovies) {

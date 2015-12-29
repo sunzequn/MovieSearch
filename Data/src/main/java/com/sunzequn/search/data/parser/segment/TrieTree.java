@@ -35,7 +35,14 @@ public class TrieTree {
         List<String> movies = readUtil.readByLine();
         readUtil = new ReadUtil(FilePath.stopwordDictionary);
         List<String> stopwords = readUtil.readByLine();
+        readUtil = new ReadUtil(FilePath.directorDictionary);
+        List<String> directors = readUtil.readByLine();
+        readUtil = new ReadUtil(FilePath.actorDictionary);
+        List<String> actors = readUtil.readByLine();
+
         add(movies);
+        add(directors);
+        add(actors);
         add(stopwords);
     }
 

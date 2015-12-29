@@ -55,7 +55,7 @@ public class Mapper {
     }
 
     private String findEntity(String sentence) {
-
+        System.out.println(sentence);
         Word word = bm.segment(sentence);
         List<String> words = word.getWords();
         System.out.println(words.toString());

@@ -12,7 +12,7 @@ public class SparqlQueryTest {
     public static void main(String[] args) {
 
         Mapper mapper = new Mapper();
-        String sparql = mapper.getSparql("孙泽群指导的电影").trim();
+        String sparql = mapper.getSparql("查传谊指导的电影的演员").trim();
         SparqlQuery query = new SparqlQuery();
 //        String sparql = "prefix NS:<http://sunzequn.com/ontology/> prefix propertyNS:<http://sunzequn.com/ontology/属性/> prefix directorNS:<http://sunzequn.com/ontology/人/导演/> prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> select ?movie { ?movie rdf:type NS:电影 . directorNS:孙泽群 propertyNS:导演 ?movie}";
         query.query(sparql);
