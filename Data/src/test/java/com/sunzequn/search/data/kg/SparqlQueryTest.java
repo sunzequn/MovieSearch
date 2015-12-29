@@ -11,10 +11,22 @@ public class SparqlQueryTest {
 
     public static void main(String[] args) {
 
-        Mapper mapper = new Mapper();
-        String sparql = mapper.getSparql("查传谊指导的电影的演员").trim();
         SparqlQuery query = new SparqlQuery();
-//        String sparql = "prefix NS:<http://sunzequn.com/ontology/> prefix propertyNS:<http://sunzequn.com/ontology/属性/> prefix directorNS:<http://sunzequn.com/ontology/人/导演/> prefix rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> select ?movie { ?movie rdf:type NS:电影 . directorNS:孙泽群 propertyNS:导演 ?movie}";
-        query.query(sparql);
+        Mapper mapper = new Mapper();
+
+//        String sparql1 = mapper.getSparql("洪金宝指导的电影有哪些").trim();
+//        query.query(sparql1);
+//
+//        String sparql2 = mapper.getSparql("查传谊指导的电影的演员有哪些").trim();
+//        query.query(sparql2);
+//
+//        String sparql3 = mapper.getSparql("捉妖记的导演是谁").trim();
+//        query.query(sparql3);
+//
+//        String sparql4 = mapper.getSparql("捉妖记的演员有哪些").trim();
+//        query.query(sparql4);
+
+        String sparql5 = mapper.getSparql("成龙参演的电影有哪些").trim();
+        query.query(sparql5);
     }
 }

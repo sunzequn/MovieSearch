@@ -59,20 +59,24 @@ public class Mapper {
         Word word = bm.segment(sentence);
         List<String> words = word.getWords();
         System.out.println(words.toString());
+        boolean isMap = true;
         for (Template template : templates) {
             String[] templateWords = template.getWords();
             if (words.size() == templateWords.length) {
+                isMap = true;
                 for (int i = 0; i < words.size(); i++) {
                     if (templateWords[i].equals("{entity}")) {
                         entities.add(words.get(i));
                     } else {
                         if (!words.get(i).equals(templateWords[i])) {
                             entities = new ArrayList<>();
-                            return null;
+                            isMap = false;
+                            break;
                         }
                     }
                 }
-                return template.getSparql();
+                if (isMap)
+                    return template.getSparql();
             }
         }
         return null;
