@@ -54,7 +54,7 @@
   <rdf:Description rdf:about="http://sunzequn.com/ontology/属性/时长">
     <rdf:type rdf:resource="&owl;DatatypeProperty"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://sunzequn.com/ontology/人/导演/Kevin Gates">
+  <rdf:Description rdf:about="http://sunzequn.com/ontology/人/导演/孙泽群">
     <j.0:导演 rdf:resource="http://sunzequn.com/ontology/电影/超自然事件簿"/>
     <rdf:type rdf:resource="http://sunzequn.com/ontology/人/导演"/>
   </rdf:Description>

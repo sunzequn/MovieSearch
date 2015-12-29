@@ -33,7 +33,10 @@ public class TrieTree {
         ReadUtil readUtil;
         readUtil = new ReadUtil(FilePath.movieDictionary);
         List<String> movies = readUtil.readByLine();
+        readUtil = new ReadUtil(FilePath.stopwordDictionary);
+        List<String> stopwords = readUtil.readByLine();
         add(movies);
+        add(stopwords);
     }
 
     public static TrieTree instance() {

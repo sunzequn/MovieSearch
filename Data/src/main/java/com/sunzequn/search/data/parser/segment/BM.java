@@ -11,7 +11,7 @@ public class BM {
     private FMM fmm;
     private TrieTree trieTree;
 
-    private BM() {
+    public BM() {
         trieTree = TrieTree.instance();
         bmm = new BMM(trieTree);
         fmm = new FMM(trieTree);

@@ -24,14 +24,13 @@ public class Movie {
     public Movie() {
     }
 
-    public Movie(YouKuMovie movie, String tencentUrl) {
+    public Movie(YouKuMovie movie) {
         this.name = movie.getName();
         this.rating = movie.getRating();
         this.duration = movie.getDuration();
         this.date = movie.getDate();
         this.general = movie.getGeneral();
         this.youkuUrl = movie.getUrl();
-        this.tencentUrl = tencentUrl;
         this.alias = movie.getAlias();
         this.directors = movie.getDirectors();
         this.actors = movie.getActors();

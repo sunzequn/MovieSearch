@@ -57,14 +57,14 @@ public class IdfGenerator {
         System.out.println("The number of tencent movies : " + tencentMovies.size());
         for (YouKuMovie movie : youKuMovies) {
             String sentence = movie.getGeneral();
-            if (sentence == null || sentence.length() < 10) {
+            if (sentence == null || sentence.length() == 10) {
                 continue;
             }
             documents.add(movie.getGeneral());
         }
         for (TencentMovie movie : tencentMovies) {
             String sentence = movie.getGeneral();
-            if (sentence == null || sentence.length() < 10) {
+            if (sentence == null || sentence.length() == 0) {
                 continue;
             }
             documents.add(movie.getGeneral());

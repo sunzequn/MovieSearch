@@ -3,7 +3,6 @@ package com.sunzequn.search.data.kg.fusion.similarity;
 import com.sunzequn.search.data.parser.stanford.Segmenter;
 import com.sunzequn.search.data.utils.ReadUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.omg.CORBA.MARSHAL;
 import org.ujmp.core.DenseMatrix;
 import org.ujmp.core.Matrix;
 import org.ujmp.core.calculation.Calculation.*;
