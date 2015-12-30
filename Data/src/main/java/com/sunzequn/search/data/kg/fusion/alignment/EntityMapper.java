@@ -15,6 +15,8 @@ import java.util.List;
 
 /**
  * Created by Sloriac on 15/12/26.
+ *
+ * The class is used to match movies from YouKu and Tencent.
  */
 public class EntityMapper {
 
@@ -26,6 +28,13 @@ public class EntityMapper {
     private static final String MOVIE_COLLECTION = "Movie";
     private static VSM vsm = new VSM();
 
+    /**
+     * Calculate the similarity of two movies.
+     *
+     * @param youKuMovie   the movie from Youku
+     * @param tencentMovie the movie from tencent
+     * @return a value representing the similarity of movies, the closer to 1, the more similar.
+     */
     public static double mapping(YouKuMovie youKuMovie, TencentMovie tencentMovie) {
 
         double nameSimilarity = JaroWinklerDis.compute(youKuMovie.getName().toCharArray(),

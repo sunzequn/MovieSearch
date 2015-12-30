@@ -14,9 +14,9 @@ public class SparqlQueryTest {
         SparqlQuery query = new SparqlQuery();
         Mapper mapper = new Mapper();
 
-//        String sparql1 = mapper.getSparql("洪金宝指导的电影有哪些").trim();
-//        query.query(sparql1);
-//
+        String sparql1 = mapper.getSparql("洪金宝指导的电影的演员有哪些").trim();
+        query.query(sparql1);
+////
 //        String sparql2 = mapper.getSparql("查传谊指导的电影的演员有哪些").trim();
 //        query.query(sparql2);
 //
@@ -26,7 +26,7 @@ public class SparqlQueryTest {
 //        String sparql4 = mapper.getSparql("捉妖记的演员有哪些").trim();
 //        query.query(sparql4);
 
-        String sparql5 = mapper.getSparql("成龙参演的电影有哪些").trim();
-        query.query(sparql5);
+//        String sparql5 = mapper.getSparql("成龙参演的电影有哪些").trim();
+//        query.query(sparql5);
     }
 }

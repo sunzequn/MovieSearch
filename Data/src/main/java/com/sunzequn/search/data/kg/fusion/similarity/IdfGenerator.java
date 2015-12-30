@@ -14,6 +14,8 @@ import java.util.Map;
 
 /**
  * Created by Sloriac on 15/12/25.
+ *
+ * Calculate the idf values of words and write it to file.
  */
 public class IdfGenerator {
 
@@ -49,7 +51,9 @@ public class IdfGenerator {
         tfIdf = new TfIdf();
     }
 
-
+    /**
+     * Get all documents(in this project , means all the generals of movies).
+     */
     private static void getDocument() {
         youKuMovies = movieOperation.findAll(DATABASE, YOUKU_MOVIE_COLLECTION, YouKuMovie.class);
         tencentMovies = movieOperation.findAll(DATABASE, TENCENT_MOVIE_COLLECTION, TencentMovie.class);
@@ -72,6 +76,9 @@ public class IdfGenerator {
         System.out.println("the number of documents : " + documents.size());
     }
 
+    /**
+     * Get all terms of these documents.
+     */
     private static void getTerms() {
         for (String document : documents) {
             List<String> terms = segmenter.seg(document);
@@ -82,6 +89,9 @@ public class IdfGenerator {
         System.out.println("the number of terms : " + termsWithIdf.size());
     }
 
+    /**
+     * Calculate the idf values and write to file.
+     */
     private static void calculate() {
         for (Map.Entry<String, Double> entry : termsWithIdf.entrySet()) {
             String term = entry.getKey();

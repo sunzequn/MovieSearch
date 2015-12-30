@@ -34,6 +34,9 @@ public class VSM {
         getIDFs();
     }
 
+    /**
+     * Read the idf values that has already bean calculated.
+     */
     private void getIDFs() {
         ReadUtil readUtil = new ReadUtil(IDF_FILE);
         List<String> lines = readUtil.readByLine();
@@ -46,6 +49,13 @@ public class VSM {
         }
     }
 
+    /**
+     * Calculate the cosine similarity of two documents.
+     *
+     * @param document1 a document
+     * @param document2 the other document
+     * @return the cosine of the two documents
+     */
     public double cosine(String document1, String document2) {
         Matrix matrix = toVector(document1, document2);
         Matrix matrix1 = matrix.selectRows(Ret.NEW, 0);
@@ -53,6 +63,15 @@ public class VSM {
         return matrix1.cosineSimilarityTo(matrix2, true);
     }
 
+    /**
+     * Transform documents into a vector in order to calculate their similarity.
+     * The first row represent the document1 and
+     * the second row represent the document2.
+     *
+     * @param document1 a document
+     * @param document2 the other document
+     * @return a <code>Matrix</code> representing the two document.
+     */
     public Matrix toVector(String document1, String document2) {
         Set<String> allTerms = new HashSet<>();
         List<String> terms1 = segmenter.seg(document1);

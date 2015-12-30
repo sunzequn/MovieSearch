@@ -8,6 +8,8 @@ import org.apache.jena.rdf.model.ModelFactory;
 
 /**
  * Created by Sloriac on 15/12/29.
+ *
+ * The class is used to query knowledge base.
  */
 public class SparqlQuery {
 
@@ -17,7 +19,16 @@ public class SparqlQuery {
         ontModel.read(Namespace.FILEPATH);
     }
 
+    /**
+     * Execute a sparql query and print the results.
+     *
+     * @param sparql a sparql query
+     */
     public void query(String sparql) {
+        if (sparql == null) {
+            System.out.println("sqarql error");
+            return;
+        }
         Query query = QueryFactory.create(sparql);
         QueryExecution qexec = QueryExecutionFactory.create(query, ontModel);
         ResultSet results = qexec.execSelect();

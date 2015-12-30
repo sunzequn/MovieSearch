@@ -2,6 +2,9 @@ package com.sunzequn.search.data.parser.pattern;
 
 /**
  * Created by Sloriac on 15/12/29.
+ *
+ * The wrapper class of templates which contains the list of words and
+ * the sparql query string with parameters representing by the denotation "*".
  */
 public class Template {
 

@@ -11,6 +11,8 @@ import java.util.List;
 
 /**
  * Created by Sloriac on 15/12/29.
+ *
+ * Find the mapped template for a query sentence.
  */
 public class Mapper {
 
