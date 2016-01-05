@@ -16,6 +16,13 @@ public class JaroWinklerDis {
     //The value of the threshold used for adding the Winkler bonus, the default value is 0.7.
     private static double threshold = 0.7;
 
+    /**
+     * Compute Jaro-Winkler distance.
+     *
+     * @param source source string
+     * @param target target string
+     * @return their Jaro-Winkler distance
+     */
     public static double compute(char[] source, char[] target) {
         int[] results = distance(source, target);
         //the number of matched character
